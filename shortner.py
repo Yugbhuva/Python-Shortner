@@ -105,7 +105,7 @@ try_cookie_login()
 if not cookies.ready:
     st.stop()
 
-st.title("NanoURLs Basic Shortener with Login (Persistent)")
+st.title("NanoURLs")
 
 # Sidebar navigation
 if st.session_state.logged_in:

@@ -152,7 +152,7 @@ else:
             cookies.save()
         st.rerun()
     elif page == "Short URL":
-        st.header("Shorten a URL")
+        st.header("Short a URL")
         long_url = st.text_input("Paste your long URL here:")
         if st.button("Short URL"):
             if not long_url or not long_url.strip():

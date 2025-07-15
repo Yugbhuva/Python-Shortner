@@ -109,9 +109,9 @@ st.title("NanoURLs")
 
 # Sidebar navigation
 if st.session_state.logged_in:
-    page = st.sidebar.radio("Navigation", ["Shorten URL", "Profile", "Logout"])
+    page = st.sidebar.radio("Navigation", ["Short URL", "Profile", "Logout"])
 else:
-    page = "Shorten URL"
+    page = "Short URL"
 
 if not st.session_state.logged_in:
     tab1, tab2 = st.tabs(["Login", "Register"])
@@ -151,10 +151,10 @@ else:
             del cookies["user_id"]
             cookies.save()
         st.rerun()
-    elif page == "Shorten URL":
+    elif page == "Short URL":
         st.header("Shorten a URL")
         long_url = st.text_input("Paste your long URL here:")
-        if st.button("Shorten URL"):
+        if st.button("Short URL"):
             if not long_url or not long_url.strip():
                 st.warning("Please enter a valid URL.")
             elif not (long_url.startswith("http://") or long_url.startswith("https://")):
@@ -165,7 +165,7 @@ else:
                     if res.status_code == 200:
                         short_url = res.json().get("short_url")
                         if short_url:
-                            st.success(f"Short URL: {short_url}")
+                            st.success(f"Shorted URL: {short_url}")
                             save_url(st.session_state.user_id, long_url, short_url)
                         else:
                             st.error("Unexpected response from server. Please try again.")
